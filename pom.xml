@@ -3,7 +3,7 @@
   <groupId>com.smart4j</groupId>
   <artifactId>smart-framework</artifactId>
   <version>1.0.0</version>
-  <packaging>war</packaging>
+  <packaging>jar</packaging>
   <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -34,6 +34,7 @@
 </dependency>
 
 <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12 -->
+<!-- 日志接口，log4j只是实现 -->
 <dependency>
     <groupId>org.slf4j</groupId>
     <artifactId>slf4j-log4j12</artifactId>
