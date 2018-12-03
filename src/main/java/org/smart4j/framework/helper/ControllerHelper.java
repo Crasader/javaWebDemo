@@ -30,12 +30,31 @@ public final class ControllerHelper {
 							Action action = method.getAnnotation(Action.class);
 							String mapping = action.value();
 							if(mapping.matches("\\w+:/\\w*")) {
-								
+								String[] array = mapping.split(":");
+								if(array != null && array.length ==2){
+									//获取请求方法和路径
+									String requestMethod = array[0];
+									String requestPath = array[1];
+									Request request = new Request(requestMethod,requestPath);
+									Handler handler = new Handler(controllerClass,method);
+									ACTION_MAP.put(request, handler);
+								}
 							}
 						}
 					}
 				}
 			}
 		}
+	}
+	
+	/**
+	 * 根据请求方法和请求路径获取handler
+	 * @param requestMethod
+	 * @param requestPath
+	 * @return
+	 */
+	public static Handler getHandler(String requestMethod,String requestPath){
+		Request request = new Request(requestMethod,requestPath);
+		return ACTION_MAP.get(request);
 	}
 }

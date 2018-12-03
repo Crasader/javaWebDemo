@@ -36,6 +36,7 @@ public final class ClassUtil {
 	public static Class<?> loadClass(String className,boolean isInitialized){
 		Class<?> cls=null;
 		try {
+			//将 initialize 设定为 false，这样在加载类时并不会立即运行静态区块，而会在使用类建立对象时才运行静态区块
 			cls = Class.forName(className, isInitialized, getClassLoader());
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
