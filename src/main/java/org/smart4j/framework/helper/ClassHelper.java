@@ -67,4 +67,37 @@ public final class ClassHelper {
 		beanClassSet.addAll(getControllerClassSet());
 		return beanClassSet;
 	}
+	
+	
+	/**
+	 * 获取应用包下父类(接口)的所有子类(实现类)
+	 * @param superClass
+	 * @return
+	 */
+   public static Set<Class<?>> getClassSetBySuper(Class<?> superClass){
+		
+		Set<Class<?>> set = new HashSet<Class<?>>();
+		for(Class<?> cls:CLASS_SET) {
+			if(superClass.isAssignableFrom(cls) && !superClass.equals(cls)) {
+				set.add(cls);
+			}
+		}
+		
+		return set;
+	}
+   
+   /**
+    * 获取有某注解的类
+    * @param annotationClass
+    * @return
+    */
+   public static Set<Class<?>> getClassSetByAnnotation(Class<? extends Annotation> annotationClass){
+	   Set<Class<?>> annotationClassSet = new HashSet<Class<?>>();
+	   for(Class<?> cls:CLASS_SET) {
+		   if(cls.isAnnotationPresent(annotationClass)) {
+			   annotationClassSet.add(cls);
+		   }
+	   }
+	   return annotationClassSet;
+   }
 }

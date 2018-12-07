@@ -1,6 +1,7 @@
 package org.smart4j.framework.helper;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -22,6 +23,12 @@ public final class BeanHelper {
 	public static Map<Class<?>,Object> getBeanMap(){
 		return BEAN_MAP;
 	}
+	
+	public static void setBean(Class<?> cls,Object object) {
+		BEAN_MAP.put(cls, object);
+	}
+	
+	
 	
 	/**
 	 * 获取bean实例

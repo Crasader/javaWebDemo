@@ -43,7 +43,9 @@ public class ProxyChain {
 	}
 
 
-
+	public Object[] getMethodParams() {
+		return methodParams;
+	}
 
 	public MethodProxy getMethodProxy() {
 		return methodProxy;
@@ -56,9 +58,16 @@ public class ProxyChain {
 		return targetClass;
 	}
 	
-	
-	public Object doProxyChain() {
-		return null;
+	//Throwable是error,exception基类
+	public Object doProxyChain()  throws Throwable{
+		Object methodResult=null;
+		
+		if(proxyIndex < proxyList.size()) {
+			methodResult = proxyList.get(proxyIndex++).doProxy(this);
+		}else {
+			methodResult = methodProxy.invokeSuper(targetObjet, methodParams);
+		}
+		return methodResult;
 		
 	}
 	
