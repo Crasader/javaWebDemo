@@ -10,6 +10,7 @@ import org.smart4j.framework.util.ReflectionUtil;
 
 public final class BeanHelper {
 
+	//常量池用的引用，可以作为GC ROOT，所以new HashMap()对象不会被回收
 	private static final Map<Class<?>,Object> BEAN_MAP = new HashMap<Class<?>,Object>();
 	
 	static {
