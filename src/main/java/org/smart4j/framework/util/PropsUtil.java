@@ -70,5 +70,12 @@ public class PropsUtil {
         return value;
     }
 
+    public static int getInt(Properties props,String key,int defaultValue){
+        int value = defaultValue;
+        if (props.containsKey(key)){
+            value = Integer.valueOf(props.getProperty(key));
+        }
+        return value;
+    }
 
 }
