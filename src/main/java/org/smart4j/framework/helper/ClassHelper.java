@@ -78,6 +78,7 @@ public final class ClassHelper {
 		
 		Set<Class<?>> set = new HashSet<Class<?>>();
 		for(Class<?> cls:CLASS_SET) {
+			//isAssignableFrom:cls是不是superClass的子类或者子接口
 			if(superClass.isAssignableFrom(cls) && !superClass.equals(cls)) {
 				set.add(cls);
 			}

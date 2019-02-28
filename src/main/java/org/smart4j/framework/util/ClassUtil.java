@@ -47,7 +47,9 @@ public final class ClassUtil {
 	public static Set<Class<?>> getClassSet(String packageName){
 		Set<Class<?>> classSet = new HashSet<Class<?>>();
 		try {
-			//这种传统接口已被迭代器取代，虽然Enumeration 还未被遗弃，但在现代代码中已经被很少使用了。尽管如此，它还是使用在诸如Vector和Properties这些传统类所定义的方法中，除此之外，还用在一些API类，并且在应用程序中也广泛被使用
+			//这种传统接口已被迭代器取代，虽然Enumeration 还未被遗弃，但在现代代码中已经被很少使用了。尽管如此，
+			//它还是使用在诸如Vector和Properties这些传统类所定义的方法中，除此之外，还用在一些API类，
+			//并且在应用程序中也广泛被使用
 			Enumeration<URL> urls = getClassLoader().getResources(packageName.replace(".", "/"));
 			while(urls.hasMoreElements()){
 				URL url = urls.nextElement();

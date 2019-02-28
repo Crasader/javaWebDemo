@@ -18,7 +18,7 @@ public class PropsUtil {
      * @return
      */
     public static Properties loadProps(String fileName){
-        Properties props = null;
+        Properties props = new Properties();
         InputStream is = null;
         try {
             //将资源文件加载为流
